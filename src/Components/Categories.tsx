@@ -27,7 +27,7 @@ interface nameProps{
         },
     ]
 
-     const [questio, setQuestions] = useState(vs)
+    const [questio, setQuestions] = useState(vs)
 
 
 
