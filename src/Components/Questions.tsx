@@ -8,7 +8,7 @@ import hpp from './imgs/2IC.gif'
 import mild from './imgs/5iY.gif'
 
 
-class Questions extends React.Component<{nickname: string, questions: any}> {
+class Questions extends React.Component<{nickname: string, questions: any, no_of_questions:number}> {
 
     shuffle = () =>{
         for (let i = this.props.questions.length - 1; i > 0; i--)
@@ -17,7 +17,7 @@ class Questions extends React.Component<{nickname: string, questions: any}> {
                 [this.props.questions[i], this.props.questions[j]] = [this.props.questions[j], this.props.questions[i]];
             }
             console.log(this.props.questions)
-            return this.shuffle
+            return this.props.questions
 
     
     }
@@ -34,7 +34,8 @@ class Questions extends React.Component<{nickname: string, questions: any}> {
         show:true, 
         imageUrl : '',
         hehe: 0,
-        rn: this.shuffle()
+        rn: this.shuffle(),
+      
     };
 
 
@@ -42,43 +43,43 @@ class Questions extends React.Component<{nickname: string, questions: any}> {
     next = (amt: number) => {
 
 
-        const rn:any = this.shuffle()
+
+        if(this.state.hehe <this.props.no_of_questions -1){
 
 
-        if(this.state.hehe <this.props.questions.length-1){
-
-
-            if(this.state.checked === this.props.questions[this.state.count].answer){
-                this.state.score++
+            if(this.state.checked === this.state.rn[this.state.count].answer){
+                this.state.score = this.state.score+1;
             }
 
             this.setState((state) => ({
-                count: this.state.hehe,
+                count: this.state.count + 1,
                 hehe: this.state.hehe+amt
             }));
 
-            console.log(rn[this.state.hehe])
+    
             
         }else{
 
-            if(this.state.checked === this.props.questions[this.state.count].answer){
+            if(this.state.checked === this.state.rn[this.state.count].answer){
                 this.state.score++
             }
 
-            if(this.state.score < 5){
+            var percentage= (this.state.score/this.props.no_of_questions)
+
+            if(percentage < 0.5){
                 this.setState({
                     imageUrl: diss
                 })
 
                 console.log(this.state.score)
-            }else if(this.state.score === 5){
+            }else if(percentage === 0.5){
                 this.setState({
                     imageUrl: mild
                 }) 
 
                 console.log(this.state.score)
 
-            }else if(this.state.score >= 6){
+            }else if(percentage >= 0.5){
                 this.setState({
                     imageUrl: hpp
                 })
@@ -116,17 +117,17 @@ class Questions extends React.Component<{nickname: string, questions: any}> {
                 this.state.show ?        
                 <div className="container">
             
-                <h5 className="center-align">{this.state.q1.lenght}Game Started! Good Luck! {this.props.nickname}</h5>
+                <h5 className="center-align">Game Started! Good Luck! {this.props.nickname}</h5>
     
                 <h6 className="left-align"><b>Question {this.state.hehe +1}</b></h6>
     
-                <p className="left-align"><h6>{this.props.questions[this.state.count].question}</h6></p>
+                <p className="left-align"><h6>{this.state.rn[this.state.count].question}</h6></p>
                 <div onChange={this.onChange}>
                     <div className="left-align">
-                    <RadioButton value="A" label={this.props.questions[this.state.count].A} />
-                    <RadioButton value="B" label={this.props.questions[this.state.count].B}  />
-                    <RadioButton value="C" label={this.props.questions[this.state.count].C} />
-                    <RadioButton value="D" label={this.props.questions[this.state.count].D}  />
+                    <RadioButton value="A" label={this.state.rn[this.state.count].A} />
+                    <RadioButton value="B" label={this.state.rn[this.state.count].B}  />
+                    <RadioButton value="C" label={this.state.rn[this.state.count].C} />
+                    <RadioButton value="D" label={this.state.rn[this.state.count].D}  />
                     </div>
                     <br />
                     <br />
@@ -147,7 +148,7 @@ class Questions extends React.Component<{nickname: string, questions: any}> {
             {
                 this.state.showEndScreen ? <EndScreen score={this.state.score}
                 player={this.props.nickname} imageUrl={this.state.imageUrl}
-                 questions={this.props.questions.length} />:null
+                 questions={this.props.no_of_questions} />:null
 
             }
             </>
