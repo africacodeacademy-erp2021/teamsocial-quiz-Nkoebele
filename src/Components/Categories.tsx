@@ -5,6 +5,7 @@ import Questions from './Questions';
 import {movies} from './Questions/Movies'
 import {knowledge} from './Questions/GKnowledge'
 import {technology} from './Questions/Technology'
+import RadioButton from './FormComponents/RadioButton'
 
 interface nameProps{
     name: string;
@@ -15,6 +16,7 @@ interface nameProps{
 
     const [showQuestion, setShowQuestion] = useState(false)
     const [showCategoris, setShowCategories] = useState(true)
+    const [numberOfQuestions, setNumberOfQuestions] = useState(0)
 
     const vs =[
         {
@@ -125,6 +127,13 @@ interface nameProps{
         setShowQuestion(true)
         
     }
+
+
+    function onChange(event:any){
+        setNumberOfQuestions(event.target.value);
+
+
+    }
     
  
 
@@ -132,7 +141,18 @@ interface nameProps{
             <div>
                 {
                     showCategoris?<>
-                     <h1>Select A Category</h1>
+                     <h1>Select number of questions</h1>
+
+
+                    <div onChange={onChange}>
+                    <p className="center-align">
+                        <RadioButton value="5" label="5" />
+                        <RadioButton value="7" label="7"  />
+                    </p>
+                    <br />
+                    <br />
+    
+                </div>
 
                     <ButtonGroup>
                     <button onClick={Knowledge} className="btn btn-primary orange" >General Knowledge</button>
@@ -145,7 +165,7 @@ interface nameProps{
 
                 {
                 
-                    showQuestion? <Questions  nickname={name} questions={questio}/>:null
+                    showQuestion? <Questions no_of_questions={numberOfQuestions}  nickname={name} questions={questio}/>:null
                 }
                
             </div>

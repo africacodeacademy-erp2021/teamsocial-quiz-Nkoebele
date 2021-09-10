@@ -30,14 +30,14 @@ export const technology =[
       "category": "Science: Computers",
       "question": "In HTML, which non-standard tag used to be be used to make elements scroll across the viewport?",
       "answer": "D",
-       "A": "&lt;scroll&gt;&lt;\/scroll&gt;",
-       "B": "&lt;move&gt;&lt;\/move&gt;",
-       "C": "&lt;slide&gt;&lt;\/slide&gt;",
-      "D": "&lt;marquee&gt;&lt;\/marquee&gt;"
+       "A": "scroll\/scroll",
+       "B": "move\/move",
+       "C": "slide\/slide",
+      "D": "marquee\/marquee"
     },
     {
       "category": "Science: Computers",
-      "question": "In &quot;Hexadecimal&quot;, what color would be displayed from the color code? &quot;#00FF00&quot;?",
+      "question": "In \"Hexadecimal\", what color would be displayed from the color code? \"#00FF00&quot\"?",
       "answer": "C",
        "A" :"Red",
        "B": "Blue",
