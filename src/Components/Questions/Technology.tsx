@@ -37,7 +37,7 @@ export const technology =[
     },
     {
       "category": "Science: Computers",
-      "question": "In \"Hexadecimal\", what color would be displayed from the color code? \"#00FF00&quot\"?",
+      "question": "In \"Hexadecimal\", what color would be displayed from the color code? \"#00FF00\"?",
       "answer": "C",
        "A" :"Red",
        "B": "Blue",
