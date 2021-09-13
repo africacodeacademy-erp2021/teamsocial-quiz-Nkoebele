@@ -1,6 +1,5 @@
 version: 2.1
 
- my-tests
 orbs:
   heroku: circleci/heroku@1.2.6
 
@@ -21,19 +20,6 @@ workflows:
 
 jobs:
   test:
-workflows:
-  version: 2
-  build-and-deploy:
-    jobs:
-      - React
-      - build:
-          requires:
-            - React
-             
-
-jobs:
-  React:
-main
     docker:
       - image: cimg/node:14.17.3
     steps:
@@ -41,13 +27,9 @@ main
       - run:
           name: install dependencies
           command: npm install
-my-tests
       - run:
           name: tests
           command: npm run test    
-
-        
- main
 
 
   build:
