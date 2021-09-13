@@ -11,6 +11,9 @@ workflows:
       - build:
           requires:
             - test
+      - run:
+          name: install dependencies
+          command: npm install      
       - heroku/deploy-via-git:
           requires:
             - build
