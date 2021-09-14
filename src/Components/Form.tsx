@@ -6,7 +6,6 @@ import {
   } from "@material-ui/core";
   import { useForm } from "react-hook-form";
   import { useState } from "react";
-import Questions from "./Questions";
 import Categories from "./Categories";
 import Quiz from './quiz.png';
 
@@ -38,11 +37,11 @@ import Quiz from './quiz.png';
     const [showCategory, setShowCategory] = useState(false);
 
     const {
-      register,
-      handleSubmit,
+      // register,
+      // handleSubmit,
     } = useForm<IFormInput>();
   
-    const { heading, submitButton } = useStyles();
+    const { heading } = useStyles();
   
     const onSubmit = (event:any) => {          
 

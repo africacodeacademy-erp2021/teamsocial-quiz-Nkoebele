@@ -30,10 +30,10 @@ export const technology =[
       "category": "Science: Computers",
       "question": "In HTML, which non-standard tag used to be be used to make elements scroll across the viewport?",
       "answer": "D",
-       "A": "scroll\/scroll",
-       "B": "move\/move",
-       "C": "slide\/slide",
-      "D": "marquee\/marquee"
+       "A": "scroll",
+       "B": "move",
+       "C": "slide",
+      "D": "marquee"
     },
     {
       "category": "Science: Computers",

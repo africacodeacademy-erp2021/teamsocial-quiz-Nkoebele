@@ -1,4 +1,3 @@
-import { url } from 'inspector';
 import React, {useState} from 'react';
 import Categories from './Categories';
 
