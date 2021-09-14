@@ -37,8 +37,8 @@ import Quiz from './quiz.png';
     const [showCategory, setShowCategory] = useState(false);
 
     const {
-      // register,
-      // handleSubmit,
+       register,
+       handleSubmit,
     } = useForm<IFormInput>();
   
     const { heading } = useStyles();

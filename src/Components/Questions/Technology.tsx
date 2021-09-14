@@ -48,10 +48,10 @@ export const technology =[
       "category": "Science: Computers",
       "question": "How fast is USB 3.1 Gen 2 theoretically?",
        "answer": "D",
-       "A": "5 Gb\/s",
-       "B": "8 Gb\/s",
-       "C": "1 Gb\/s",
-      "D": "10 Gb\/s"
+       "A": "5 Gbs",
+       "B": "8 Gbs",
+       "C": "1 Gbs",
+      "D": "10 Gbs"
     },
     {
       "category": "Science: Computers",
