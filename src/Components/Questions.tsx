@@ -47,6 +47,7 @@ class Questions extends React.Component<{nickname: string, questions: any, no_of
         if(this.state.hehe <this.props.no_of_questions -1){
 
 
+
             if(this.state.checked === this.state.rn[this.state.count].answer){
                 this.state.score = this.state.score+1;
             }
@@ -146,9 +147,9 @@ class Questions extends React.Component<{nickname: string, questions: any, no_of
             }
 
             {
-                this.state.showEndScreen ? <EndScreen score={this.state.score}
+                this.state.showEndScreen ? <EndScreen score={this.state.score * 100}
                 player={this.props.nickname} imageUrl={this.state.imageUrl}
-                 questions={this.props.no_of_questions} />:null
+                 questions={this.props.no_of_questions * 100} />:null
 
             }
             </>
