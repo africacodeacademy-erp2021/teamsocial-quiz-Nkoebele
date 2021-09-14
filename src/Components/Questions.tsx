@@ -49,7 +49,9 @@ class Questions extends React.Component<{nickname: string, questions: any, no_of
 
 
             if(this.state.checked === this.state.rn[this.state.count].answer){
-                this.state.score = this.state.score+1;
+                this.setState({
+                    score: this.state.score+1
+                })
             }
 
             this.setState((state) => ({
@@ -62,7 +64,9 @@ class Questions extends React.Component<{nickname: string, questions: any, no_of
         }else{
 
             if(this.state.checked === this.state.rn[this.state.count].answer){
-                this.state.score++
+                this.setState({
+                    score: this.state.score+1
+                })
             }
 
             var percentage= (this.state.score/this.props.no_of_questions)
@@ -98,7 +102,9 @@ class Questions extends React.Component<{nickname: string, questions: any, no_of
     }
 
     onChange = (event:any) =>{
-        this.state.checked = event.target.value;
+        this.setState({
+            checked: event.target.value
+        })
 
         this.setState({
             checked: event.target.value
