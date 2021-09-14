@@ -4,21 +4,12 @@ import {
     Typography,
 
   } from "@material-ui/core";
-  import { useForm } from "react-hook-form";
   import { useState } from "react";
-import Questions from "./Questions";
 import Categories from "./Categories";
 import Quiz from './quiz.png';
 
 
 
-  
-  interface IFormInput {
-    gamePin: string;
-    nickName: string;
-    error: string
-
-  }
   
   const useStyles = makeStyles((theme) => ({
     heading: {
@@ -37,12 +28,8 @@ import Quiz from './quiz.png';
     const [show, setShow] = useState(true);
     const [showCategory, setShowCategory] = useState(false);
 
-    const {
-      register,
-      handleSubmit,
-    } = useForm<IFormInput>();
   
-    const { heading, submitButton } = useStyles();
+    const { heading } = useStyles();
   
     const onSubmit = (event:any) => {          
 

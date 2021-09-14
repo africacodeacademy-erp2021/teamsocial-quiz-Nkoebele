@@ -1,4 +1,3 @@
-import { url } from 'inspector';
 import React, {useState} from 'react';
 import Categories from './Categories';
 
@@ -39,7 +38,7 @@ const EndScreen: React.FC<GameProps> = ({ score, player, questions, imageUrl }) 
     
 
 <h1 style={{marginTop: '50px', color: 'white'}}>Game Finished</h1>
-<h3 style={{color: 'white'}}>{score} / {questions}{""}</h3>
+<h3 style={{color: 'white'}}>{player}   {score} / {questions}{""}</h3>
 
 <button onClick={restartGame } className="btn btn-primary medium " >Restart Game</button>
 

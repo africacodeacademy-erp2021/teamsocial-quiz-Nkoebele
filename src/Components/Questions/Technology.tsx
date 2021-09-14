@@ -30,10 +30,10 @@ export const technology =[
       "category": "Science: Computers",
       "question": "In HTML, which non-standard tag used to be be used to make elements scroll across the viewport?",
       "answer": "D",
-       "A": "scroll\/scroll",
-       "B": "move\/move",
-       "C": "slide\/slide",
-      "D": "marquee\/marquee"
+       "A": "scroll",
+       "B": "move",
+       "C": "slide",
+      "D": "marquee"
     },
     {
       "category": "Science: Computers",
@@ -48,10 +48,10 @@ export const technology =[
       "category": "Science: Computers",
       "question": "How fast is USB 3.1 Gen 2 theoretically?",
        "answer": "D",
-       "A": "5 Gb\/s",
-       "B": "8 Gb\/s",
-       "C": "1 Gb\/s",
-      "D": "10 Gb\/s"
+       "A": "5 Gbs",
+       "B": "8 Gbs",
+       "C": "1 Gbs",
+      "D": "10 Gbs"
     },
     {
       "category": "Science: Computers",
