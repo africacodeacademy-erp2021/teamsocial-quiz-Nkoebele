@@ -33,9 +33,10 @@ import Quiz from './quiz.png';
   
     const onSubmit = (event:any) => {          
 
-            if (userName.length < 5)
+            if (userName.length < 5  ){
             
         alert('Registration Failed')
+            }
 
         else{
           setShow(false)
@@ -66,7 +67,8 @@ import Quiz from './quiz.png';
                 <Container maxWidth="xs">
                 <form>
                   <input type="text" placeholder="Game Pin" required />
-                  <input type="text" placeholder="Nick Name" onChange={changeNickName} required />
+                  <input type="text" placeholder="Nick Name" onChange={changeNickName} 
+                  required/>
           
                 </form>
               </Container>

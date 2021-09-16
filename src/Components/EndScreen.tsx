@@ -6,10 +6,11 @@ interface GameProps{
     score: number;
     player: string;
     questions: number,
-    imageUrl: string
+    imageUrl: string;
+    results: string;
 }
 
-const EndScreen: React.FC<GameProps> = ({ score, player, questions, imageUrl }) => {
+const EndScreen: React.FC<GameProps> = ({ score, player, questions, imageUrl, results }) => {
 
     const[showCategories, setShowCategories] = useState(false);
 
@@ -38,7 +39,7 @@ const EndScreen: React.FC<GameProps> = ({ score, player, questions, imageUrl }) 
     
 
 <h1 style={{marginTop: '50px', color: 'white'}}>Game Finished</h1>
-<h3 style={{color: 'white'}}>{player}   {score} / {questions}{""}</h3>
+<h3 style={{color: 'white'}}>{player}   {results}   {score} / {questions}{""}</h3>
 
 <button onClick={restartGame } className="btn btn-primary medium " >Restart Game</button>
 
