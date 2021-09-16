@@ -60,9 +60,14 @@ interface nameProps{
             
         }
     
-        setQuestions(q)
-        setShowCategories(false)
-        setShowQuestion(true)
+        if(numberOfQuestions !== 0){
+            setQuestions(q)
+            setShowCategories(false)
+            setShowQuestion(true)
+            
+        }else{
+            alert("Choose Number of questions")
+        }
 
     }
 
@@ -91,10 +96,14 @@ interface nameProps{
             
             
         }
-    
-        setQuestions(qs)
-        setShowCategories(false)
-        setShowQuestion(true)
+        if(numberOfQuestions !== 0){
+            setQuestions(qs)
+            setShowCategories(false)
+            setShowQuestion(true)
+            
+        }else{
+            alert("Choose Number of questions")
+        }
     }
 
     function Movies(){
@@ -122,10 +131,14 @@ interface nameProps{
             
         }
     
-        setQuestions(qs)
-        setShowCategories(false)
-        setShowQuestion(true)
-        
+        if(numberOfQuestions !== 0){
+            setQuestions(qs)
+            setShowCategories(false)
+            setShowQuestion(true)
+            
+        }else{
+            alert("Choose Number of questions")
+        }
     }
 
 
@@ -141,13 +154,13 @@ interface nameProps{
             <div>
                 {
                     showCategoris?<>
-                     <h1>Select number of questions</h1>
+                     <h1>Select number of questions {name}</h1>
 
 
                     <div onChange={onChange}>
                     <p className="center-align">
-                        <RadioButton value="5" label="5" />
-                        <RadioButton value="7" label="7"  />
+                        <RadioButton value="5" label="5 Questions" />
+                        <RadioButton value="7" label="7 Questions"  />
                     </p>
                     <br />
                     <br />

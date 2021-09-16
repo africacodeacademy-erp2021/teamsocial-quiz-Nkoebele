@@ -2,7 +2,8 @@ import React from 'react'
 import EndScreen from '../Components/EndScreen';
 import RadioButton from '../Components/FormComponents/RadioButton'
 import './materialize.min.css'
-
+import {Sadmeme} from './imgs/Sadmeme'
+import {Happymeme} from './imgs/Happymeme'
 import diss from './imgs/2Bz.gif'
 import hpp from './imgs/2IC.gif'
 import mild from './imgs/5iY.gif'
@@ -35,69 +36,89 @@ class Questions extends React.Component<{nickname: string, questions: any, no_of
         imageUrl : '',
         hehe: 0,
         rn: this.shuffle(),
-      
+        gif:'',
+        passOrFail: 'Failed'
     };
 
 
     
     next = (amt: number) => {
-
-
-
-        if(this.state.hehe <this.props.no_of_questions -1){
-
-
-
-            if(this.state.checked === this.state.rn[this.state.count].answer){
-                this.setState({
-                    score: this.state.score+1
-                })
-            }
-
-            this.setState((state) => ({
-                count: this.state.count + 1,
-                hehe: this.state.hehe+amt
-            }));
+        let ran = Math.floor(Math.random()*Sadmeme.length-1)
 
     
+        
+            if(this.state.hehe <this.props.no_of_questions -1){
+
+
+
+                if(this.state.checked === this.state.rn[this.state.count].answer){
+                    this.setState({
+                        score: this.state.score+1,
+                        gif: Happymeme[ran].href
+                    })
+                }else{
+                    this.setState({
+                        gif: Sadmeme[ran].href
+                    })
+                }
+    
+                this.setState((state) => ({
+                    count: this.state.count + 1,
+                    hehe: this.state.hehe+amt
+                }));
+    
+        
+                
+            }else{
+    
+                if(this.state.checked === this.state.rn[this.state.count].answer){
+                    let ran = Math.floor(Math.random()*Happymeme.length+1)
+                    this.setState({
+                        score: this.state.score+1,
+                        gif: Happymeme[ran].href
+                    })
+                }else{
+                    this.setState({
+                        gif: Sadmeme[ran]
+                    })
+                }
+    
+                var percentage= (this.state.score/this.props.no_of_questions)
+    
+                if(percentage < 0.5){
+                    alert('failed')
+                    this.setState({
+                        imageUrl: diss,
+                        passOrFail: 'Failed'
+                    })
+    
+                    console.log(this.state.score)
+                }else if(percentage === 0.5){
+                    this.setState({
+                        imageUrl: mild,
+                        passOrFail: 'Passed'
+                        
+                    }) 
+    
+                    console.log(this.state.score)
+    
+                }else if(percentage >= 0.5){
+                    alert('pass')
+                    this.setState({
+                        imageUrl: hpp,
+                        passOrFail: 'Passed'
+                    })
+    
+                    console.log(this.state.imageUrl)
+                }
+                this.setState({
+                    showEndScreen:true,
+                    show:false
+                })
+    
+     
+    
             
-        }else{
-
-            if(this.state.checked === this.state.rn[this.state.count].answer){
-                this.setState({
-                    score: this.state.score+1
-                })
-            }
-
-            var percentage= (this.state.score/this.props.no_of_questions)
-
-            if(percentage < 0.5){
-                this.setState({
-                    imageUrl: diss
-                })
-
-                console.log(this.state.score)
-            }else if(percentage === 0.5){
-                this.setState({
-                    imageUrl: mild
-                }) 
-
-                console.log(this.state.score)
-
-            }else if(percentage >= 0.5){
-                this.setState({
-                    imageUrl: hpp
-                })
-
-                console.log(this.state.imageUrl)
-            }
-            this.setState({
-                showEndScreen:true,
-                show:false
-            })
-
- 
-
         }
     }
 
@@ -147,6 +168,7 @@ class Questions extends React.Component<{nickname: string, questions: any, no_of
                 </button>
     
                <p>{this.state.checked}</p>
+               <img src={this.state.gif} alt="ene hle!"/>
                <p>{this.state.score}</p>
         
             </div>:null
@@ -154,7 +176,7 @@ class Questions extends React.Component<{nickname: string, questions: any, no_of
 
             {
                 this.state.showEndScreen ? <EndScreen score={this.state.score * 100}
-                player={this.props.nickname} imageUrl={this.state.imageUrl}
+                player={this.props.nickname} imageUrl={this.state.imageUrl} results={this.state.passOrFail}
                  questions={this.props.no_of_questions * 100} />:null
 
             }
