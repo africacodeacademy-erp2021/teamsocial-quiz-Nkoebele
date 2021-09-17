@@ -37,7 +37,8 @@ class Questions extends React.Component<{nickname: string, questions: any, no_of
         hehe: 0,
         rn: this.shuffle(),
         gif:'',
-        passOrFail: 'Failed'
+        passOrFail: 'Failed',
+        radioChecked: false
     };
 
 
@@ -45,7 +46,9 @@ class Questions extends React.Component<{nickname: string, questions: any, no_of
     next = (amt: number) => {
         let ran = Math.floor(Math.random()*Sadmeme.length-1)
 
-    
+            this.setState({
+                radioChecked: false
+            })
         
             if(this.state.hehe <this.props.no_of_questions -1){
 
@@ -86,7 +89,6 @@ class Questions extends React.Component<{nickname: string, questions: any, no_of
                 var percentage= (this.state.score/this.props.no_of_questions)
     
                 if(percentage < 0.5){
-                    alert('failed')
                     this.setState({
                         imageUrl: diss,
                         passOrFail: 'Failed'
@@ -103,7 +105,6 @@ class Questions extends React.Component<{nickname: string, questions: any, no_of
                     console.log(this.state.score)
     
                 }else if(percentage >= 0.5){
-                    alert('pass')
                     this.setState({
                         imageUrl: hpp,
                         passOrFail: 'Passed'
@@ -123,16 +124,16 @@ class Questions extends React.Component<{nickname: string, questions: any, no_of
     }
 
     onChange = (event:any) =>{
-        this.setState({
-            checked: event.target.value
-        })
+        
 
-        this.setState({
-            checked: event.target.value
-        });
+            this.setState({
+                radioChecked: true,
+                checked: event.target.value,
+               
+            })
+        }
 
     
-    }
     
 
     render(){ 
@@ -152,10 +153,10 @@ class Questions extends React.Component<{nickname: string, questions: any, no_of
                 <p className="left-align"><h6>{this.state.rn[this.state.count].question}</h6></p>
                 <div onChange={this.onChange}>
                     <div className="left-align">
-                    <RadioButton value="A" label={this.state.rn[this.state.count].A} />
-                    <RadioButton value="B" label={this.state.rn[this.state.count].B}  />
-                    <RadioButton value="C" label={this.state.rn[this.state.count].C} />
-                    <RadioButton value="D" label={this.state.rn[this.state.count].D}  />
+                    <RadioButton value="A" label={this.state.rn[this.state.count].A} checked={this.state.radioChecked} />
+                    <RadioButton value="B" label={this.state.rn[this.state.count].B} checked={this.state.radioChecked} />
+                    <RadioButton value="C" label={this.state.rn[this.state.count].C} checked={this.state.radioChecked} />
+                    <RadioButton value="D" label={this.state.rn[this.state.count].D} checked={this.state.radioChecked} />
                     </div>
                     <br />
                     <br />

@@ -39,7 +39,10 @@ const EndScreen: React.FC<GameProps> = ({ score, player, questions, imageUrl, re
     
 
 <h1 style={{marginTop: '50px', color: 'white'}}>Game Finished</h1>
-<h3 style={{color: 'white'}}>{player}   {results}   {score} / {questions}{""}</h3>
+<h3 style={{color: 'white'}}>{player} {results} </h3>
+
+<h4 style={{marginTop: '50px', color: 'white'}} >{score} / {questions}{""}</h4> 
+<br/>
 
 <button onClick={restartGame } className="btn btn-primary medium " >Restart Game</button>
 
