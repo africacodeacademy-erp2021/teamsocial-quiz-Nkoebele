@@ -15,8 +15,7 @@ function App() {
 
   return (
     <div className="App">
-      <h5 className="center-align">Welcome</h5>
-      <hr/>
+
 
     <Form/>
     

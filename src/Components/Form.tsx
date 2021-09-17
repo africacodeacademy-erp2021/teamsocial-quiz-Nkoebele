@@ -22,6 +22,15 @@ import Quiz from './quiz.png';
   }));
 
   let userName ="";
+
+  function validateName(name:string){
+    let letters = /^[A-Za-z]+$/;
+    if(name.match(letters))
+    return true
+    else
+    return false
+
+  }
   
   function Form() {
 
@@ -35,12 +44,20 @@ import Quiz from './quiz.png';
 
             if (userName.length < 5  ){
             
-        alert('Registration Failed')
+        alert('Username cannot be empty')
             }
 
         else{
-          setShow(false)
+
+          let valid = validateName(userName);
+
+          if(valid){
+            setShow(false)
             setShowCategory(true);
+          }else{
+            alert("Username should contain only alphabets")
+          }
+
         }
 
     };
@@ -55,11 +72,12 @@ import Quiz from './quiz.png';
   
     return (
         <div>
-
           
             {
                 show?
                 <div>
+                        <h5 className="center-align">Welcome</h5>
+      <hr/>
                     <Container maxWidth="xs">
                 <Typography className={heading} variant="h3">
                   Wanna Have Fun!!!  <img src={Quiz} alt="Trivia" width="30%"/>
